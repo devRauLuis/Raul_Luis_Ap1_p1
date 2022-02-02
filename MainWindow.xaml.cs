@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Raul_Luis_Ap1_p1.UI.Registros;
+using Raul_Luis_Ap1_p1.UI.Consultas;
+
+
 
 namespace Raul_Luis_Ap1_p1
 {
@@ -25,7 +29,16 @@ namespace Raul_Luis_Ap1_p1
             InitializeComponent();
         }
 
-        private void onRegistroMenuItemClick(object sender, RoutedEventArgs e) { }
-        private void onConsultaMenuItemClick(object sender, RoutedEventArgs e) { }
+        private void onRegistroMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            var registroView = new Registro();
+            registroView.Show();
+        }
+
+        private void onConsultaMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            var consultaView = new Consulta();
+            consultaView.Show();
+        }
     }
 }
