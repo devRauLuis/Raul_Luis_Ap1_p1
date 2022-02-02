@@ -24,5 +24,8 @@ namespace Raul_Luis_Ap1_p1
         {
             InitializeComponent();
         }
+
+        private void onRegistroMenuItemClick(object sender, RoutedEventArgs e) { }
+        private void onConsultaMenuItemClick(object sender, RoutedEventArgs e) { }
     }
 }
