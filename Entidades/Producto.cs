@@ -7,7 +7,7 @@ public class Producto
     public int ProductoId { get; set; }
 
     [Required]
-    public string Descripcion { get; set; }
+    public string? Descripcion { get; set; }
 
     [Required]
     public bool Existencia { get; set; }
