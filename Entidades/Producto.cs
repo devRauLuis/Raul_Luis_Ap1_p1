@@ -10,12 +10,12 @@ public class Producto
     public string? Descripcion { get; set; }
 
     [Required]
-    public bool Existencia { get; set; }
+    public int Existencia { get; set; }
 
     [Required]
     public float Costo { get; set; }
 
     [Required]
-    public int ValorInventario { get; set; }
+    public float ValorInventario { get; set; }
 
 }
