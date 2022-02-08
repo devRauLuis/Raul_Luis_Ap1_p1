@@ -29,16 +29,16 @@ namespace Raul_Luis_Ap1_p1
             InitializeComponent();
         }
 
-        private void onRegistroMenuItemClick(object sender, RoutedEventArgs e)
+        private void onRegistroProductosMenuItemClick(object sender, RoutedEventArgs e)
         {
-            var registroView = new Registro();
-            registroView.Show();
+            var rProductosView = new rProductos();
+            rProductosView.Show();
         }
 
-        private void onConsultaMenuItemClick(object sender, RoutedEventArgs e)
+        private void onConsultaProductosMenuItemClick(object sender, RoutedEventArgs e)
         {
-            var consultaView = new Consulta();
-            consultaView.Show();
+            var cProductosView = new cProductos();
+            cProductosView.Show();
         }
     }
 }

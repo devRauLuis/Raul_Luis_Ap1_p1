@@ -2,9 +2,9 @@ using System.Windows;
 
 namespace Raul_Luis_Ap1_p1.UI.Consultas;
 
-public partial class Consulta : Window
+public partial class cProductos : Window
 {
-    public Consulta()
+    public cProductos()
     {
         InitializeComponent();
     }

@@ -14,14 +14,15 @@
             <Menu>
                 <MenuItem Header="Registros">
                     <MenuItem
-                            Header="Registros"
-                            x:Name="Registros"
-                            Click="onRegistroMenuItemClick" />
-                </MenuItem><MenuItem Header="Consultas">
+                            Header="Productos"
+                            x:Name="rProductosMenuItem"
+                            Click="onRegistroProductosMenuItemClick" />
+                </MenuItem>
+                <MenuItem Header="Consultas">
                     <MenuItem
-                            Header="Consultas"
-                            x:Name="Consultas"
-                            Click="onConsultaMenuItemClick" />
+                            Header="Productos"
+                            x:Name="cProductosMenuItem"
+                            Click="onConsultaProductosMenuItemClick" />
                 </MenuItem>
             </Menu>
         </StackPanel>

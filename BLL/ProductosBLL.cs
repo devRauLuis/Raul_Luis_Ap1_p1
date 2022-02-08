@@ -87,14 +87,15 @@ namespace Raul_Luis_Ap1_p1.BLL
                 {
                     try
                     {
-                        context.Productos.Remove(producto); return context.SaveChanges() > 0;
-
+                        context.Productos.Remove(producto);
+                        return context.SaveChanges() > 0;
                     }
                     catch (System.Exception ex)
                     {
                         throw;
                     }
                 }
+                return false;
             }
         }
 
