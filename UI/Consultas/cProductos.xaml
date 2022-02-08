@@ -19,32 +19,31 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center">
 
-                <!-- COMBOBOX -->
                 <Label Content="Filtro:" />
                 <ComboBox
                         x:Name="FiltroComboBox"
                         Width="100">
-                    <ComboBox.Items></ComboBox.Items>
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="ID" />
+                        <ComboBoxItem Content="Descripcion" />
+                    </ComboBox.Items>
                 </ComboBox>
 
-
-                <!-- CRITERIO -->
                 <Label Content="Criterio:" />
                 <TextBox
                         x:Name="CriterioTextBox"
                         Width="100" />
 
-                <!-- BUSCAR -->
                 <Button
-                        Content="🔎 Buscar"
-                        Click="BuscarButton_Click" />
+                        Content="🔎"
+                        Click="BuscarButton_Click"
+                        Padding="6,3" />
             </StackPanel>
 
-            <!-- GRID -->
             <DataGrid
-                    x:Name="DataGrid"
+                    x:Name="ConsultaDG"
                     Height="250"
-                    Width="380"></DataGrid>
+                    Width="380" />
 
         </StackPanel>
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Raul_Luis_Ap1_p1;
 using Raul_Luis_Ap1_p1.Entidades;
 using Raul_Luis_Ap1_p1.BLL;
 
@@ -45,19 +46,19 @@ public partial class rProductos : Window
         if (string.IsNullOrWhiteSpace(productoActual.Descripcion))
         {
             DescripcionTB.Focus();
-            ShowErrorMessageBox("¡Debe indicar una descripción válida!");
+            Utils.ShowErrorMessageBox("¡Debe indicar una descripción válida!");
             return false;
         }
         else if (productoActual.Existencia < 0)
         {
             ExistenciaTB.Focus();
-            ShowErrorMessageBox("¡Debe indicar una existencia válida!");
+            Utils.ShowErrorMessageBox("¡Debe indicar una existencia válida!");
             return false;
         }
         else if (productoActual.Costo < 0)
         {
             CostoTB.Focus();
-            ShowErrorMessageBox("¡Debe indicar un costo válida!");
+            Utils.ShowErrorMessageBox("¡Debe indicar un costo válida!");
             return false;
         }
         return true;
@@ -74,7 +75,7 @@ public partial class rProductos : Window
         else
         {
             Limpiar();
-            ShowErrorMessageBox("¡No es encontró el producto!", "Falló");
+            Utils.ShowErrorMessageBox("¡No es encontró el producto!", "Falló");
         }
     }
 
@@ -87,8 +88,8 @@ public partial class rProductos : Window
     {
         var existeDescripcion = ProductosBLL.GetList(p => p.Descripcion == productoActual.Descripcion).Count > 0;
         if (existeDescripcion && !Validar()) return;
-        if (ProductosBLL.Guardar(productoActual)) ShowInformationMessageBox("¡Producto guardado con éxito!");
-        else ShowErrorMessageBox("¡No se pudo guardar el producto!");
+        if (ProductosBLL.Guardar(productoActual)) Utils.ShowInformationMessageBox("¡Producto guardado con éxito!");
+        else Utils.ShowErrorMessageBox("¡No se pudo guardar el producto!");
     }
 
     private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -96,9 +97,9 @@ public partial class rProductos : Window
         if (ProductosBLL.Eliminar(productoActual.ProductoId))
         {
             Limpiar();
-            ShowInformationMessageBox("¡Fue eliminado con éxito!");
+            Utils.ShowInformationMessageBox("¡Fue eliminado con éxito!");
         }
-        else ShowErrorMessageBox("¡No se pudo eliminar el producto!");
+        else Utils.ShowErrorMessageBox("¡No se pudo eliminar el producto!");
     }
 
     private void OnProductoIdTBChanged(object sender, EventArgs e)
@@ -117,7 +118,6 @@ public partial class rProductos : Window
 
     private void CalcularValorInventario()
     {
-
         int existencia = int.TryParse(ExistenciaTB.Text, out existencia) ? existencia : 0;
         float costo = float.TryParse(CostoTB.Text, out costo) ? costo : 0;
         var valorInventario = (float)existencia * costo;
@@ -125,12 +125,4 @@ public partial class rProductos : Window
         ValorInventarioTB.Text = $"{valorInventario:N2}";
     }
 
-    private void ShowErrorMessageBox(string msg, string title = "Validación")
-    {
-        MessageBox.Show(msg, title, MessageBoxButton.OK, MessageBoxImage.Error);
-    }
-    private void ShowInformationMessageBox(string msg, string title = "Éxito")
-    {
-        MessageBox.Show(msg, title, MessageBoxButton.OK, MessageBoxImage.Information);
-    }
 }
