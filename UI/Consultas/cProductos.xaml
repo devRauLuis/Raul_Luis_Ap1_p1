@@ -41,7 +41,7 @@
             </StackPanel>
 
             <DataGrid
-                    x:Name="ConsultaDG"
+                    x:Name="ProductosDG"
                     Height="250"
                     Width="380" />
 

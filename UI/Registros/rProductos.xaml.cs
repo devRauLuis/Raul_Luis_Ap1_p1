@@ -86,8 +86,13 @@ public partial class rProductos : Window
 
     private void GuardarButton_Click(object sender, RoutedEventArgs e)
     {
-        var existeDescripcion = ProductosBLL.GetList(p => p.Descripcion == productoActual.Descripcion).Count > 0;
-        if (existeDescripcion && !Validar()) return;
+        var existeDescripcion = ProductosBLL.GetList(p => true).Any(p => p.Descripcion == productoActual.Descripcion);
+        if (existeDescripcion)
+        {
+            Utils.ShowErrorMessageBox("¡Ya existe un producto con esa descripción!");
+            return;
+        }
+        if (!Validar()) return;
         if (ProductosBLL.Guardar(productoActual)) Utils.ShowInformationMessageBox("¡Producto guardado con éxito!");
         else Utils.ShowErrorMessageBox("¡No se pudo guardar el producto!");
     }
