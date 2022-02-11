@@ -12,6 +12,7 @@ public partial class cProductos : Window
     public cProductos()
     {
         InitializeComponent();
+        FiltroComboBox.SelectedIndex = 0;
     }
 
     private void BuscarButton_Click(object sender, RoutedEventArgs e)
