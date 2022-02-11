@@ -20,7 +20,7 @@
             Orientation="Vertical"
             Margin="20,10">
 
-            <StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <StackPanel HorizontalAlignment="Center">
                     <Label Content="Filtro:" />
                     <ComboBox
@@ -38,8 +38,7 @@
                     <Label Content="Criterio:" />
                     <StackPanel Orientation="Horizontal">
                         <TextBox
-                            x:Name="CriterioTextBox"/>
-
+                            x:Name="CriterioTextBox" Width="150"/>
                         <Button
                             Content="🔎"
                             Click="BuscarButton_Click"
