@@ -49,13 +49,13 @@ public partial class rProductos : Window
             Utils.ShowErrorMessageBox("¡Debe indicar una descripción válida!");
             return false;
         }
-        else if (productoActual.Existencia < 0)
+        else if (productoActual.Existencia <= 0)
         {
             ExistenciaTB.Focus();
             Utils.ShowErrorMessageBox("¡Debe indicar una existencia válida!");
             return false;
         }
-        else if (productoActual.Costo < 0)
+        else if (productoActual.Costo <= 0)
         {
             CostoTB.Focus();
             Utils.ShowErrorMessageBox("¡Debe indicar un costo válida!");
@@ -86,13 +86,15 @@ public partial class rProductos : Window
 
     private void GuardarButton_Click(object sender, RoutedEventArgs e)
     {
+        if (!Validar()) return;
+        var editando = ProductosBLL.GetList(p => true).Any(p => p.ProductoId == productoActual.ProductoId);
         var existeDescripcion = ProductosBLL.GetList(p => true).Any(p => p.Descripcion == productoActual.Descripcion);
-        if (existeDescripcion)
+
+        if (existeDescripcion is true && editando is not true)
         {
             Utils.ShowErrorMessageBox("¡Ya existe un producto con esa descripción!");
             return;
         }
-        if (!Validar()) return;
         if (ProductosBLL.Guardar(productoActual)) Utils.ShowInformationMessageBox("¡Producto guardado con éxito!");
         else Utils.ShowErrorMessageBox("¡No se pudo guardar el producto!");
     }
