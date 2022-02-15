@@ -1,10 +1,10 @@
 using System;
 using System.Windows;
 using System.Collections.Generic;
-
 using Raul_Luis_Ap1_p1;
 using Raul_Luis_Ap1_p1.Entidades;
 using Raul_Luis_Ap1_p1.BLL;
+
 namespace Raul_Luis_Ap1_p1.UI.Consultas;
 
 public partial class cProductos : Window
@@ -12,12 +12,15 @@ public partial class cProductos : Window
     public cProductos()
     {
         InitializeComponent();
+        FiltroComboBox.SelectedIndex = 0;
+        ProductosDG.ItemsSource = ProductosBLL.GetList(p => true);
+
     }
 
     private void BuscarButton_Click(object sender, RoutedEventArgs e)
     {
         var lista = new List<Producto>();
-        if (string.IsNullOrWhiteSpace(CriterioTextBox.Text))
+        if (CriterioTextBox.Text is null)
         {
             lista = ProductosBLL.GetList(p => true);
         }
@@ -32,6 +35,7 @@ public partial class cProductos : Window
                         Utils.ShowErrorMessageBox("ID no valido");
                         break;
                     }
+
                     lista = ProductosBLL.GetList(p => p.ProductoId == id);
                     break;
                 case 1:
@@ -43,5 +47,4 @@ public partial class cProductos : Window
             ProductosDG.ItemsSource = lista;
         }
     }
-
 }
