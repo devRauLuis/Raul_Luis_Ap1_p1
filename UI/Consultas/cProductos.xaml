@@ -1,31 +1,31 @@
 <Window
-    x:Class="Raul_Luis_Ap1_p1.UI.Consultas.cProductos"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:Raul_Luis_Ap1_p1.UI.Consultas"
-    mc:Ignorable="d"
-    Title="Consulta de productos"
-    Height="400"
-    Width="400"
-    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-    Background="{DynamicResource MaterialDesignPaper}"
-    TextElement.FontWeight="Medium"
-    TextElement.FontSize="14"
-    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+        x:Class="Raul_Luis_Ap1_p1.UI.Consultas.cProductos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Raul_Luis_Ap1_p1.UI.Consultas"
+        mc:Ignorable="d"
+        Title="Consulta de productos"
+        Height="400"
+        Width="550"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
 
         <StackPanel
-            Orientation="Vertical"
-            Margin="20,10">
+                Orientation="Vertical"
+                Margin="20,10">
 
             <StackPanel Orientation="Horizontal">
                 <StackPanel HorizontalAlignment="Center">
                     <Label Content="Filtro:" />
                     <ComboBox
-                        x:Name="FiltroComboBox"
-                        Width="100">
+                            x:Name="FiltroComboBox"
+                            Width="100">
                         <ComboBox.Items>
                             <ComboBoxItem Content="ID" />
                             <ComboBoxItem Content="Descripcion" />
@@ -33,24 +33,25 @@
                     </ComboBox>
                 </StackPanel>
                 <StackPanel
-                    HorizontalAlignment="Center"
-                    Margin="15,0,0,0">
+                        HorizontalAlignment="Center"
+                        Margin="15,0,0,0">
                     <Label Content="Criterio:" />
                     <StackPanel Orientation="Horizontal">
                         <TextBox
-                            x:Name="CriterioTextBox" Width="150"/>
+                                x:Name="CriterioTextBox"
+                                Width="150" />
                         <Button
-                            Content="🔎"
-                            Click="BuscarButton_Click"
-                            Padding="6,3" />
+                                Content="🔎"
+                                Click="BuscarButton_Click"
+                                Padding="6,3" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
 
             <DataGrid
-                x:Name="ProductosDG"
-                Height="250"
-                Margin="0,15,0,0" />
+                    x:Name="ProductosDG"
+                    Height="250"
+                    Margin="0,15,0,0" />
         </StackPanel>
 
     </Grid>
