@@ -95,8 +95,13 @@ public partial class rProductos : Window
             Utils.ShowErrorMessageBox("¡Ya existe un producto con esa descripción!");
             return;
         }
-        if (ProductosBLL.Guardar(productoActual)) Utils.ShowInformationMessageBox("¡Producto guardado con éxito!");
+        if (ProductosBLL.Guardar(productoActual))
+        {
+            Utils.ShowInformationMessageBox("¡Producto guardado con éxito!");
+            Limpiar();
+        }
         else Utils.ShowErrorMessageBox("¡No se pudo guardar el producto!");
+
     }
 
     private void EliminarButton_Click(object sender, RoutedEventArgs e)
